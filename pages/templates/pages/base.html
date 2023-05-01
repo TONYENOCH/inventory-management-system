@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Inventory Management System</title>
+</head>
+<body class="body">
+    <header class="header">
+        <section ><a href="{% url 'pages:itemsList' %}">
+            <span class="material-symbols-outlined">
+                    home
+            </span>
+        </a></section>
+        <section>
+            <p class="logo underline">
+                {% block title%}
+                    
+                {% endblock title%}
+            </p>
+        </section>
+        <section>
+            <figure>
+                <a href="{% url 'pages:itemsSearch' %}" class="btn btn--circle">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </a>
+            </figure>
+        </section>
+    </header>
+    {% block content %}
+    {% endblock content %}
+    <footer class="footer">
+        <section>
+          <figure>
+            <a href="{% url 'pages:itemCreate' %}" class="btn btn--circle">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+            </a>
+            <figcaption class="lite">create new item</figcaption>
+          </figure>
+        </section>
+        <section>
+            <figure>
+                <a href="{% url 'pages:transactions' %}" class="btn btn--circle">
+                    <span class="material-symbols-outlined">
+                        receipt_long
+                    </span>
+                </a>
+              <figcaption class="lite">check transaction history</figcaption>
+            </figure>
+        </section>
+    </footer>
+</body>
+</html>

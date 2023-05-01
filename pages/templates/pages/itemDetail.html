@@ -1,0 +1,33 @@
+{% extends 'pages/base.html' %}
+
+{% block title%}
+    {{ item.name }}
+{% endblock title%}
+
+{% block content %}
+
+<main class="main-alt">
+    <section class="back-btn">
+        <a href="{% url 'pages:itemsList' %}">
+            <span class="material-symbols-outlined">
+                west
+            </span>
+        </a>
+    </section>
+    <section class="item-container">
+        <div class="item-display">
+            <p class="item__name underline logo">{{ item.name }}</p>
+            <p class="item__price large">$ {{ item.price }}</p>
+            <figure>
+                <a href="{% url 'pages:itemSell' item.pk %}" class="btn end">
+                    <span class="lite">SELL</span>
+                    <span class="material-symbols-outlined">
+                        sell
+                    </span>
+                </a>
+            </figure>
+        </div>
+    </section>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'pages/base.html' %}
+
+{% block title%}
+    SELL
+{% endblock title%}
+
+{% block content %}
+
+<main class="main-alt">
+    <section class="back-btn">
+        <a href="{% url 'pages:itemsDetail' object.id %}">
+            <span class="material-symbols-outlined">
+                west
+            </span>
+        </a>
+    </section>
+    <section class="item-container">
+        <form action="" method="POST" class="sell-confirm">
+            {% csrf_token %}
+            <h2 class="underline">SELL ITEM</h2>
+            <p>are you sure you want to sell this item  <span class="uppercase">'{{ object.name }}'</span></p>
+            <button type="submit" value="sell" class="btn">Sell</button>
+        </form>
+    </section>
+</main>
+
+{% endblock content %}

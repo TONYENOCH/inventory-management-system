@@ -1,0 +1,39 @@
+{% extends 'pages/base.html' %}
+
+{% block title%}
+    TRANSACTIONS
+{% endblock title%}
+
+{% block content %}
+
+<main class="main-transaction">
+    {% if transactions %}
+    <section class="transactions-container">
+        {% for transaction in transactions %}
+        <div class="transaction">
+            <p class="transaction__name underline">{{ transaction.item_name }}</p>
+            <p>PRICE</p>
+            <p class="transaction__price">${{ transaction.item_price }}</p>
+            <figure class="end-alt">
+                <a href="" class="">
+                    <span class="material-symbols-outlined">
+                        tag
+                    </span>
+                </a>
+                <p class="transaction__id">{{ transaction.transaction_id }}</p>
+            </figure>
+        </div>
+        {% endfor %}
+    </section>
+    <section class="transactions-info">
+        <p class="num-transactions">Number of Transactions:{{ calc.num_transactions }}</p>
+        <p class="total-amount">Sum Amount: {{ calc.sum_price }}</p>
+        <p class="highest-amount">Highest Amount:{{ calc.max_price }}</p>
+        <p class="avg-amount">Average Amount: {{ calc.avg_price }}</p>
+    </section>
+    {% else %}
+    <p>no transactions made</p>
+    {% endif %}
+</main>
+
+{% endblock content %}
